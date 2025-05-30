@@ -100,5 +100,5 @@ const deployCommands = async () => {
 // ▶️ เริ่มทำงาน
 (async () => {
   await deployCommands();
-  client.login(process.env.TOKEN);
+  client.login(process.env.DISCORD_TOKEN);
 })();
