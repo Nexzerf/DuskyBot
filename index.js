@@ -72,6 +72,7 @@ for (const file of eventFiles) {
 client.distube = new DisTube(client, {
   emitNewSongOnly: true,
   emitAddListWhenCreatingQueue: false,
+   ffmpeg: ffmpegInstaller.path, 
   plugins: [
     new SpotifyPlugin(),
     new SoundCloudPlugin(),
