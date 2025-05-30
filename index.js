@@ -17,6 +17,8 @@ const path = require('path');
 
 // ✅ ตั้งค่า ffmpeg path
 const ffmpegStatic = require('ffmpeg-static');
+const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
+console.log("ffmpeg path:", ffmpegInstaller.path);
 
 // ✅ เรียกใช้ DisTube และ plugins
 const { DisTube } = require('distube');
@@ -71,7 +73,7 @@ for (const file of eventFiles) {
 client.distube = new DisTube(client, {
   emitNewSongOnly: true,
   emitAddListWhenCreatingQueue: false,
-   ffmpeg: ffmpegStatic,
+  ffmpeg: ffmpegInstaller.path,
   plugins: [
     new SpotifyPlugin(),
     new SoundCloudPlugin(),
@@ -103,5 +105,5 @@ const deployCommands = async () => {
 // ▶️ เริ่มทำงาน
 (async () => {
   await deployCommands();
-  client.login(process.env.TOKEN);
+  client.login(process.env.DISCORD_TOKEN);
 })();
