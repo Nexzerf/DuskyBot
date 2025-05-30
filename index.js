@@ -16,8 +16,7 @@ const fs = require('fs');
 const path = require('path');
 
 // ✅ ตั้งค่า ffmpeg path
-const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
-process.env.FFMPEG_PATH = ffmpegInstaller.path;
+const ffmpegStatic = require('ffmpeg-static');
 
 // ✅ เรียกใช้ DisTube และ plugins
 const { DisTube } = require('distube');
@@ -72,7 +71,7 @@ for (const file of eventFiles) {
 client.distube = new DisTube(client, {
   emitNewSongOnly: true,
   emitAddListWhenCreatingQueue: false,
-   ffmpeg: ffmpegInstaller.path, 
+   ffmpeg: ffmpegStatic,
   plugins: [
     new SpotifyPlugin(),
     new SoundCloudPlugin(),
