@@ -16,9 +16,10 @@ const fs = require('fs');
 const path = require('path');
 
 const ffmpegStatic = require('ffmpeg-static');
+
+// ✅ ประกาศตัวแปรให้ชัดเจน
 process.env.FFMPEG_PATH = ffmpegStatic;
 console.log("✅ FFmpeg Path:", ffmpegStatic);
-
 // ✅ เรียกใช้ DisTube และ plugins
 const { DisTube } = require('distube');
 const { SpotifyPlugin } = require('@distube/spotify');
@@ -68,14 +69,13 @@ for (const file of eventFiles) {
   }
 }
 
-// ✅ สร้าง DisTube instance พร้อม plugins
 client.distube = new DisTube(client, {
   emitNewSongOnly: true,
   emitAddListWhenCreatingQueue: false,
   plugins: [
     new SpotifyPlugin(),
     new SoundCloudPlugin(),
-    new YtDlpPlugin({ update: true })
+    new YtDlpPlugin({ update: true }),
   ]
 });
 
