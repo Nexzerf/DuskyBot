@@ -17,6 +17,7 @@ const path = require('path');
 
 // ✅ ตั้งค่า ffmpeg path
 const ffmpegPath = require('ffmpeg-static');
+process.env.FFMPEG_PATH = require('ffmpeg-static');
 console.log("✅ FFmpeg Path:", ffmpegPath);
 
 
