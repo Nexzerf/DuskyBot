@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: duskybot
+    runtime: node
+    repo: https://github.com/Nexzerf/DuskyBot
+    branch: main
+    buildCommand: ""
+    startCommand: node index.js
+    envVars:
+      - key: TOKEN
+        sync: false
+      - key: CLIENT_ID
+        sync: false
