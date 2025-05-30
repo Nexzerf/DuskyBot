@@ -11,10 +11,15 @@ app.listen(port, () => {
   console.log(`🌐 Server running on port ${port}`);
 });
 
-const { Client, GatewayIntentBits, Collection, Events, EmbedBuilder, REST, Routes } = require('discord.js');
-
+const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+
+// ✅ ตั้งค่า ffmpeg path
+const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
+process.env.FFMPEG_PATH = ffmpegInstaller.path;
+
+// ✅ เรียกใช้ DisTube และ plugins
 const { DisTube } = require('distube');
 const { SpotifyPlugin } = require('@distube/spotify');
 const { SoundCloudPlugin } = require('@distube/soundcloud');
@@ -29,8 +34,6 @@ const client = new Client({
     GatewayIntentBits.MessageContent,
   ],
 });
-
-
 
 // 👇 เก็บ Slash Commands
 client.commands = new Collection();
@@ -65,15 +68,15 @@ for (const file of eventFiles) {
   }
 }
 
-      client.distube = new DisTube(client, {
-        emitNewSongOnly: true,
-        emitAddListWhenCreatingQueue: false,
-        plugins: [
-          new SpotifyPlugin(),
-          new SoundCloudPlugin(),
-          new YtDlpPlugin({
-            update: true,
-            ffmpeg: require("ffmpeg-static"),
+// ✅ สร้าง DisTube instance พร้อม plugins
+client.distube = new DisTube(client, {
+  emitNewSongOnly: true,
+  emitAddListWhenCreatingQueue: false,
+  plugins: [
+    new SpotifyPlugin(),
+    new SoundCloudPlugin(),
+    new YtDlpPlugin({
+      update: true
     })
   ]
 });
@@ -100,5 +103,5 @@ const deployCommands = async () => {
 // ▶️ เริ่มทำงาน
 (async () => {
   await deployCommands();
-  client.login(process.env.DISCORD_TOKEN);
+  client.login(process.env.TOKEN);
 })();
