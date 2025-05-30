@@ -16,8 +16,6 @@ const fs = require('fs');
 const path = require('path');
 
 const ffmpegStatic = require('ffmpeg-static');
-
-// ✅ ประกาศตัวแปรให้ชัดเจน
 process.env.FFMPEG_PATH = ffmpegStatic;
 console.log("✅ FFmpeg Path:", ffmpegStatic);
 // ✅ เรียกใช้ DisTube และ plugins
