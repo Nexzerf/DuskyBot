@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "@discordjs/builders": "^1.11.2",
-    "@discordjs/opus": "^0.10.0",
+    "opusscript": "^0.0.8",
     "@discordjs/rest": "^2.5.0",
     "@discordjs/voice": "^0.18.0",
     "@distube/soundcloud": "^2.0.4",
@@ -40,7 +40,7 @@
     "qrcode": "^1.5.4",
     "youtube-sr": "^4.3.11"
   },
-"engines": {
-  "node": ">=20.18.1"
-}
+  "engines": {
+    "node": ">=18.0.0 <21.0.0"
+  }
 }
