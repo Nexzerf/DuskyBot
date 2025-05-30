@@ -1,7 +1,7 @@
 {
-  "name": "distube-music",
+  "name": "duskybot",
   "version": "1.0.0",
-  "description": "A feature-rich Discord music bot using DisTube with slash commands",
+  "description": "A feature-rich Discord",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -39,5 +39,8 @@
     "play-dl": "^1.9.7",
     "qrcode": "^1.5.4",
     "youtube-sr": "^4.3.11"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
