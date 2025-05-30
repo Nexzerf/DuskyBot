@@ -15,11 +15,9 @@ const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord
 const fs = require('fs');
 const path = require('path');
 
-// ✅ ตั้งค่า ffmpeg path
-const ffmpegPath = require('ffmpeg-static');
-process.env.FFMPEG_PATH = require('ffmpeg-static');
-console.log("✅ FFmpeg Path:", ffmpegPath);
-
+const ffmpegStatic = require('ffmpeg-static');
+process.env.FFMPEG_PATH = ffmpegStatic;
+console.log("✅ FFmpeg Path:", ffmpegStatic);
 
 // ✅ เรียกใช้ DisTube และ plugins
 const { DisTube } = require('distube');
@@ -74,7 +72,6 @@ for (const file of eventFiles) {
 client.distube = new DisTube(client, {
   emitNewSongOnly: true,
   emitAddListWhenCreatingQueue: false,
-  ffmpeg: ffmpegPath,
   plugins: [
     new SpotifyPlugin(),
     new SoundCloudPlugin(),
