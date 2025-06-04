@@ -104,6 +104,15 @@ distube.on('disconnect', (queue) => {
 
   queue.textChannel.send({ embeds: [embed] });
 });
+  
+client.distube
+  .on('playSong', (queue, song) => {
+    queue.textChannel.send(`🎶 กำลังเล่น: \`${song.name}\` - \`${song.formattedDuration}\``);
+  })
+  .on('error', (channel, error) => {
+    console.error('❌ DisTube Error:', error);
+    if (channel) channel.send(`❌ เกิดข้อผิดพลาด: \`${error.message}\``);
+  });
 
 
   distube.on('empty', (queue) => {
