@@ -73,10 +73,26 @@ client.distube = new DisTube(client, {
   plugins: [
     new SpotifyPlugin(),
     new SoundCloudPlugin(),
-    new YtDlpPlugin({ update: true }),
+    new YtDlpPlugin({
+      update: true,
+      ytdlpOptions: {
+        requestOptions: {
+          headers: {
+            // เพิ่ม cookies จากไฟล์ที่ export มา
+            cookie: fs.readFileSync('./cookies.txt', 'utf8'),
+          }
+        }
+      }
+    }),
   ]
 });
 
+
+if (process.env.YT_COOKIES) {
+  const cookiesPath = path.join(__dirname, 'cookies.txt');
+  fs.writeFileSync(cookiesPath, process.env.YT_COOKIES);
+  console.log("✅ สร้าง cookies.txt จาก Railway ENV แล้ว");
+}
 // ✨ โหลด DisTube Event Handler แยก
 const { handleDistubeEvents } = require('./utils/distubeEvents');
 handleDistubeEvents(client);
