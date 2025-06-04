@@ -49,9 +49,6 @@ module.exports = {
       }
 
       const queue = interaction.client.distube.getQueue(interaction.guildId);
-      if (!queue) {
-        await interaction.client.distube.voices.join(voiceChannel);
-      }
 
       await interaction.client.distube.play(voiceChannel, songUrl, {
         member: interaction.member,
