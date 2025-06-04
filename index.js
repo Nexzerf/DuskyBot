@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const cookies = process.env.YOUTUBE_COOKIES || '';
+const cookies = process.env.YT_COOKIES || '';
 
 app.get('/', (req, res) => {
   res.send('Bot is alive!');
