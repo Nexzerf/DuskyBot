@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const cookiesFromEnv = process.env.YOUTUBE_COOKIES || '';
+const cookies = process.env.YOUTUBE_COOKIES || '';
 
 app.get('/', (req, res) => {
   res.send('Bot is alive!');
@@ -79,12 +79,12 @@ client.distube = new DisTube(client, {
       ytdlpOptions: {
         requestOptions: {
           headers: {
-            cookie: cookiesFromEnv,
-          }
-        }
-      }
+            cookie: cookies,
+          },
+        },
+      },
     }),
-  ]
+  ],
 });
 
 
