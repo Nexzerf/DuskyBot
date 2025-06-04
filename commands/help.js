@@ -45,7 +45,7 @@ module.exports = {
       .setTitle(`🔎 เมนูช่วยเหลือ`)
       .setDescription('เลือกหมวดหมู่จากเมนูด้านล่างเพื่อดูคำสั่งต่าง ๆ')
       .setColor('#3333FF')
-      .setThumbnail('https://cdn.discordapp.com/attachments/1239134501934993511/1379774517416693841/helpbanner.png?ex=684176a7&is=68402527&hm=5848cc87175e0b5397124830e9e52cb81f93b9c5c43955e776b3cbaef7fab557&')
+      .setImage('https://cdn.discordapp.com/attachments/1239134501934993511/1379774517416693841/helpbanner.png?ex=684176a7&is=68402527&hm=5848cc87175e0b5397124830e9e52cb81f93b9c5c43955e776b3cbaef7fab557&')
       .setTimestamp();
 
     
